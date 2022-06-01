@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.sdet34l1.genericUtlity.DriverUtility;
+
 public class HomePage {
 
 	
@@ -18,8 +20,11 @@ public class HomePage {
 		
 	}
 	
-	public void clickBook()
+	public void clickBook(WebDriver driver)
 	{
+		DriverUtility driverUtility=new DriverUtility(driver);
+		driverUtility.intializeJavaScriptExecutor(driver);
+		driverUtility.scrollTillElement(clickBook);
 		clickBook.click();
 	}
 }

@@ -8,7 +8,5 @@ public interface ILocation {
 
 	String PROPERTYPATH="./src/test/resources/commonData.properties";
 	String EXCELPATH="./src/test/resources/TestData.xlsx";
-	String DATABASEPATH="./src/test/resources/databaseData.properties";
-	String DATABASEURL="jdbc:mysql://localhost:3306/";
-	String EXCELPATHFORDATABASE="./src/test/resources/databaseTest.xlsx";
+
 }

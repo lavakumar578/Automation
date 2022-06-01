@@ -5,9 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.sdet34l1.genericUtlity.DriverUtility;
+
 public class AddToCartPage {
 
-	@FindBy(xpath="//li[@class='post-182 product type-product status-publish has-post-thumbnail product_cat-html product_tag-html has-post-title has-post-date has-post-category has-post-tag has-post-comment has-post-author  instock taxable shipping-taxable purchasable product-type-simple']//a[text()='Add to basket']")
+	@FindBy(xpath="//li[contains(@class,'post-181 product type-product')]//a[contains(@class,'button')]")
 	private WebElement addToCart;
 	
 	public AddToCartPage(WebDriver driver)
@@ -15,8 +17,11 @@ public class AddToCartPage {
 		PageFactory.initElements(driver,this);
 	}
 	
-	public void clickAddToCart()
+	public void clickAddToCart(WebDriver driver)
 	{
+		DriverUtility driverUtility=new DriverUtility(driver);
+		driverUtility.intializeJavaScriptExecutor(driver);
+		driverUtility.scrollTillElement(addToCart);
 		addToCart.click();
 	}
 	

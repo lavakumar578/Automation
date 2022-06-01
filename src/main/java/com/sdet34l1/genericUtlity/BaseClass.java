@@ -13,9 +13,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 
-import com.vtiger.objectRepository.HomePage;
-import com.vtiger.objectRepository.LoginPage;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 /**
  * This class  is  used to get the common annotations
@@ -23,8 +20,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
  * Super Most Class
  */
 public class BaseClass {
-	public LoginPage loginPage;
-	public HomePage homePage;
+
 	public WebDriver driver;
 	public JavaLangUtility javaLangUtility;
 	public long longTimeOut;
@@ -62,7 +58,7 @@ public class BaseClass {
 	@BeforeMethod(groups="baseclass")
 	public void beforeMethodTest()
 	{
-		loginPage.loginAction(username,password );
+
 	}
 	/**
 	 * This annotation is used to perform logout
@@ -70,29 +66,22 @@ public class BaseClass {
 	@AfterMethod(groups="baseclass")
 	public void afterMethodTest()
 	{
-		homePage.signout(driver, driverUtility);
+	
 	}
 	/**
 	 * This annotation is used to get common data from propertyfile
 	 * create instance for all generic utilities
 	 */
-	//@Parameters("browser")
 	@BeforeClass(groups="baseclass")
-	public void beforeClassTest(/*String browser*/)
+	public void beforeClassTest()
 	{
 		javaLangUtility=new JavaLangUtility();
 		XlsxUtility.openDataFormtter();
 		String timeout=PropertiesUtility.getDataFromProperty("timeOut");
 		longTimeOut=javaLangUtility.stringToLong(timeout);
 		randomNum=javaLangUtility.getRandomNumber(1000);
-		username=PropertiesUtility.getDataFromProperty("userName");
-		password=PropertiesUtility.getDataFromProperty("password");
 		url=PropertiesUtility.getDataFromProperty("url");
 		browser=PropertiesUtility.getDataFromProperty("browser");
-//		browser=System.getProperty("BROWSER");
-//		url=System.getProperty("URL");
-//		username=System.getProperty("USERNAME");
-//		password=System.getProperty("PASSWORD");
 		switch(browser)
 		{
 		case "chrome":
@@ -116,8 +105,6 @@ public class BaseClass {
 		}
 		
 		staticdriver=driver;
-		loginPage=new LoginPage(driver);
-		homePage=new HomePage(driver);
 		driverUtility = new DriverUtility(driver);
 		DriverUtility.navigateApp(url, driver);
 		DriverUtility.browserSetting(driver, longTimeOut);
