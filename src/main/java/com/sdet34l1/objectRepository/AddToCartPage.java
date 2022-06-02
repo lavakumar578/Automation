@@ -9,7 +9,7 @@ import com.sdet34l1.genericUtlity.DriverUtility;
 
 public class AddToCartPage {
 
-	@FindBy(xpath="//li[contains(@class,'post-181 product type-product')]//a[contains(@class,'button')]")
+	@FindBy(xpath="//li[contains(@class,'post-182 product type-product')]//a[contains(@class,'button')]")
 	private WebElement addToCart;
 	
 	public AddToCartPage(WebDriver driver)

@@ -7,9 +7,8 @@
         <methods>
           <include name="beforeSuite"/>
           <include name="afterSuiteTest"/>
-          <include name="afterMethodTest"/>
+          <include name="afterClassTest"/>
           <include name="addBookToCart"/>
-          <include name="beforeMethodTest"/>
           <include name="beforeClassTest"/>
         </methods>
       </class> <!-- com.BookTest.AddBookToCartTest -->
