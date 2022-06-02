@@ -52,22 +52,8 @@ public class BaseClass {
 		XlsxUtility.setDataToExcel(ILocation.EXCELPATH);
 		XlsxUtility.closeExcel();
 	}
-	/**
-	 * This annotation is used to perform loginAction
-	 */
-	@BeforeMethod(groups="baseclass")
-	public void beforeMethodTest()
-	{
-
-	}
-	/**
-	 * This annotation is used to perform logout
-	 */
-	@AfterMethod(groups="baseclass")
-	public void afterMethodTest()
-	{
 	
-	}
+	
 	/**
 	 * This annotation is used to get common data from propertyfile
 	 * create instance for all generic utilities
